@@ -1,6 +1,8 @@
 
 angular.module('yourAppsName', [
   'ionic',
+  'nvd3',
+  'nvChart',
   'yourAppsName.controllers',
   'yourAppsName.filters',
   'yourAppsName.services',
