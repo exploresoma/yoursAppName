@@ -1,0 +1,86 @@
+<ion-view view-title="{{ticker}}">
+
+  <div class="bar bar-subheader bar-light">
+
+    <div class="buttons" side="left">
+      <div class="button button-clear">
+        <h6>{{stockDetailsData.Name}}</h6>
+      </div>
+    </div>
+
+
+  <h2 class="title button-left buttons-right">{{stockPriceData.price}}</h2>
+
+  <div class="buttons" side="right">
+    <div class="button button-clear">
+      <h6>{{stockPriceData.chg_percent}}%</h6>
+    </div>
+  </div>
+</div>
+  <ion-content class="has-subheader">
+    <div class="button-bar">
+      <div ng-click="chartViewFunc(1)" ng-class="chartView == 1 ? 'active' : '' " class="button">Day</div>
+      <div ng-click="chartViewFunc(2)" ng-class="chartView == 2 ? 'active' : '' " class="button">Week</div>
+      <div ng-click="chartViewFunc(3)" ng-class="chartView == 3 ? 'active' : '' " class="button">3m</div>
+      <div ng-click="chartViewFunc(4)" ng-class="chartView == 4 ? 'active' : '' " class="button">Year</div>
+      <div ng-click="chartViewFunc(5)" ng-class="chartView == 5 ? 'active' : '' " class="button">Max</div>
+
+    </div>
+
+    <img ng-if="chartView == 1" ng-src="http://chart.finance.yahoo.com/z?s={{ticker}}&amp;t=1d&amp;q=l&amp;l=on&amp;z=m&amp;a=vn&amp;" style="width: 100%">
+    <img ng-if="chartView == 2" ng-src="http://chart.finance.yahoo.com/z?s={{ticker}}&amp;t=5d&amp;q=l&amp;l=on&amp;z=m&amp;a=vn&amp;" style="width: 100%">
+    <img ng-if="chartView == 3" ng-src="http://chart.finance.yahoo.com/z?s={{ticker}}&amp;t=3m&amp;q=l&amp;l=on&amp;z=m&amp;a=vn&amp;" style="width: 100%">
+    <img ng-if="chartView == 4" ng-src="http://chart.finance.yahoo.com/z?s={{ticker}}&amp;t=1y&amp;q=l&amp;l=on&amp;z=m&amp;a=vn&amp;" style="width: 100%">
+    <img ng-if="chartView == 5" ng-src="http://chart.finance.yahoo.com/z?s={{ticker}}&amp;t=my&amp;q=l&amp;l=on&amp;z=m&amp;a=vn&amp;" style="width: 100%">
+
+    <div class="card">
+      <div class="item item-divider">Market Data</div>
+      <div class="row row-center">
+        <div class="col">Ask: </div>
+        <div class="col">{{stockDetailsData.Ask}}</div>
+        <div class="col">Bid: </div>
+        <div class="col">{{stockDetailsData.Bid}}</div>
+      </div>
+      <div class="row row-center">
+        <div class="col">Data</div>
+        <div class="col">1000.5000</div>
+        <div class="col">Data</div>
+        <div class="col">1000.5000</div>
+      </div>
+      <div class="row row-center">
+        <div class="col">Valume :</div>
+        <div class="col">{{stockPriceData.volume}}</div>
+        <div class="col">Avg. Volume:</div>
+        <div class="col">{{stockDetailsData.AverageDailyVolume}}</div>
+      </div>
+      <div class="row row-center">
+        <div class="col">Market Cap: </div>
+        <div class="col">{{stockDetailsData.MarketCapitalization}}</div>
+        <div class="col">EBITDA: </div>
+        <div class="col">{{stockDetailsData.EBITDA}}</div>
+      </div>
+      <div class="row row-center">
+        <div class="col">P/E :</div>
+        <div class="col">{{stockDetailsData.PERatio}}</div>
+        <div class="col">EPS: </div>
+        <div class="col">{{stockDetailsData.EarningsShare}}</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="item item-divider">Notes</div>
+      <a class="item">
+        <h2>Note Title</h2>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="item item-divider">News</div>
+      <a class="item item-icon-right">
+        <h2>News Story Title</h2>
+        <i class="icon ion-ios-arrow-right"></i>
+      </a>
+
+    </div>
+  </ion-content>
+</ion-view>
