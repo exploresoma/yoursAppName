@@ -1,8 +1,10 @@
 
 angular.module('yourAppsName', [
   'ionic',
+  'angular-cache',
   'nvd3',
   'nvChart',
+  'cb.x2js',
   'yourAppsName.controllers',
   'yourAppsName.filters',
   'yourAppsName.services',
